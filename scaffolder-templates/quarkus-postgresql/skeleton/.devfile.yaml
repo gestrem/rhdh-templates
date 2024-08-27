@@ -55,7 +55,7 @@ commands:
     exec:
       label: "0. Enable Quarkus Dev UI"
       component: development-tooling
-      commandLine: "export DEVUI_URL=$(oc get dw -o=jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}');sed -i 's/<SOMETHING>/'"$DEVUI_URL"'/g' /projects/hero4/src/main/resources/application.properties;"
+      commandLine: "export DEVUI_URL=$(oc get dw -o=jsonpath='{.items[?(@.status.phase==\"Running\")].metadata.name}');sed -i 's/<SOMETHING>/'\"$DEVUI_URL\"'/g' /projects/hero4/src/main/resources/application.properties;"
       group:
         kind: build
         isDefault: true
@@ -77,3 +77,26 @@ commands:
         kind: run
         isDefault: true
 
+
+
+
+      commandLine: "export DEVUI_URL=$(oc get dw -o=jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}');sed -i 's/<SOMETHING>/'"$DEVUI_URL"'/g' /projects/hero4/src/main/resources/application.properties;"
+
+
+
+echo |  awk -F"-" -v wk=$WORKSPACE_NAME '{print  wk}'
+
+
+sed 's/\-.*//' $WORKSPACE_NAME
+${WORKSPACE_NAME%%-*}
+
+
+export DEVUI_URL=$(oc get dw -o=jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}');sed -i 's/<SOMETHING>/'"$DEVUI_URL"'/g' /projects/${WORKSPACE_NAME%%-*}/src/main/resources/application.properties;
+
+
+
+
+.well-known/openid-configuration
+
+
+https://keycloak-keycloak-system.apps.cluster-rw97m.sandbox266.opentlc.com/auth/realms/backstage/protocol/openid-connect/auth?response_type=code&client_id=backstage&redirect_uri=https%3A%2F%2Fquay-312-quay-quay-enterprise.apps.cluster-rw97m.sandbox266.opentlc.com%2Foauth2%2Foidc%2Fcallback&scope=openid&state=Orog4LCUafjJXtnFWmadFlHRTS71wy7jEXmu3GkK9HceJSjGV_smNeTVTnYgpV0O
