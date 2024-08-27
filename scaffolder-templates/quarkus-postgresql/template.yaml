@@ -203,7 +203,7 @@ spec:
           java_package_name_dir: ${{ parameters.java_package_name | replace(".","/") }}
           owner: ${{ user.entity.metadata.name }}
           cluster: .${{ parameters.openshiftCluster }}
-          host: ${{ parameters.repo.host }}.${{ parameters.openshiftCluster }}
+          host: https://gitlab-gitlab.apps.cluster-966vb.966vb.sandbox444.opentlc.com
           destination: '${{ user.entity.metadata.name }}/${{ parameters.component_id }}'
           quay_destination: ${{ parameters.image_organization}}/${{ parameters.component_id }}
           port: 8080
