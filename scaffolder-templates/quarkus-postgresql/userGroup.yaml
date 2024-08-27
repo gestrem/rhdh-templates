@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: group-batman
+  description: group-batman
+spec:
+  type: team
+  profile:
+    # Intentional no displayName for testing
+    email: batman@opentlc.com
+    picture: https://avatars.dicebear.com/api/identicon/team-a@example.com.svg?background=%23fff&margin=25
+  parent: rhdh
+  children: []
