@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: quarkus-postgresql
   title: quarkus-postgresql
-  description: Create a quarkus-rest-postgresql microservice
+  description: Create a quarkus-rest-postgresql microservice gl1
   tags:
     - recommended
     - java
@@ -203,7 +203,7 @@ spec:
           java_package_name_dir: ${{ parameters.java_package_name | replace(".","/") }}
           owner: ${{ user.entity.metadata.name }}
           cluster: .${{ parameters.openshiftCluster }}
-          host: https://gitlab-gitlab.apps.cluster-966vb.966vb.sandbox444.opentlc.com
+          host: 'gitlab-gitlab.apps.cluster-966vb.966vb.sandbox444.opentlc.com'
           destination: '${{ user.entity.metadata.name }}/${{ parameters.component_id }}'
           quay_destination: ${{ parameters.image_organization}}/${{ parameters.component_id }}
           port: 8080
@@ -216,7 +216,7 @@ spec:
       name: Publish
       action: publish:gitlab
       input:
-        repoUrl: "https://gitlab-gitlab.apps.cluster-966vb.966vb.sandbox444.opentlc.com/?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
+        repoUrl: "gitlab-gitlab.apps.cluster-966vb.966vb.sandbox444.opentlc.com/?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
         repoVisibility: public
 
     - id: register
